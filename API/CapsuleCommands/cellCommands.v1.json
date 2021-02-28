@@ -1,0 +1,49 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "cellCommands",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "paths": {
+    "/cellActions/startTakeoffProcess/{cellId}/{droneId}": {
+      "post": {
+        "summary": "startTakeoffProcess",
+        "operationId": "post-startTakeoffProcess",
+        "description": "Start the process to be ready for take off",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "cellId",
+          "in": "path",
+          "required": true,
+          "description": "The cell id for the action"
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "droneId",
+          "in": "path",
+          "required": true,
+          "description": "The drone id taking off"
+        }
+      ]
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}

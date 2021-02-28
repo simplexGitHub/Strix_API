@@ -1,0 +1,16 @@
+{
+  "title": "generalResponse",
+  "type": "object",
+  "properties": {
+    "succes": {
+      "type": "boolean"
+    },
+    "description": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "description": "General s-sync response to Rest"
+}
