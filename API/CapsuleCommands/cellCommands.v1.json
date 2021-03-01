@@ -17,7 +17,14 @@
         "description": "Start the process to be ready for take off",
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "If the operation started succesfully return success true and description else return success false and array of error enums and description",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../Models/Responses/generalResponse.v1.json"
+                }
+              }
+            }
           }
         }
       },
@@ -39,6 +46,129 @@
           "in": "path",
           "required": true,
           "description": "The drone id taking off"
+        }
+      ]
+    },
+    "/cellActions/requestForTakeoff/{cellId}/{droneId}": {
+      "post": {
+        "summary": "requestForTakeoff",
+        "operationId": "post-cellActions-requestForTakeoff",
+        "responses": {
+          "200": {
+            "description": "If the operation started succesfully return success true and description else return success false and array of error enums and description",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../Models/Responses/generalResponse.v1.json"
+                }
+              }
+            }
+          },
+          "": {
+            "description": ""
+          }
+        },
+        "description": "Request for takeoff means that from the cell point of view the drone is clear for take off"
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "cellId",
+          "in": "path",
+          "required": true,
+          "description": "The cell id responsible for the request"
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "droneId",
+          "in": "path",
+          "required": true,
+          "description": "The drone Id requesting the take off"
+        }
+      ]
+    },
+    "/cellActions/startLandingProcess/{cellId}/{droneId}": {
+      "post": {
+        "summary": "startLandingProcess",
+        "operationId": "post-cellActions-startLandingProcess",
+        "responses": {
+          "200": {
+            "description": "If the operation started succesfully return success true and description else return success false and array of error enums and description",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../Models/Responses/generalResponse.v1.json"
+                }
+              }
+            }
+          }
+        },
+        "description": "Start all the preperations for landing"
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "cellId",
+          "in": "path",
+          "required": true,
+          "description": "The cell responsible for the action"
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "droneId",
+          "in": "path",
+          "required": true,
+          "description": "The drone ask for landing"
+        }
+      ]
+    },
+    "/cellActions/requestForLanding/{cellId}/{droneId}": {
+      "post": {
+        "summary": "",
+        "operationId": "post-cellActions-requestForLanding",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "": {
+            "description": "If the operation started succesfully return success true and description else return success false and array of error enums and description",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "../../Models/Responses/generalResponse.v1.json"
+                }
+              }
+            }
+          }
+        },
+        "description": "Request for clear to land"
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "cellId",
+          "in": "path",
+          "required": true,
+          "description": "The cell id responsible for the request"
+        },
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "droneId",
+          "in": "path",
+          "required": true,
+          "description": "The drone id requesting to land"
         }
       ]
     }
